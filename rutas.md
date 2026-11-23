@@ -7,23 +7,13 @@ permalink: /rutas/
 
 # Rutas institucionales Unillanos (2026-2)
 
-**Vigencia:** 2026-2 · **Última actualización:** 2026-11-21 · **Empresa:** Servitranstur
+**Vigencia:** 2026-2 · **Última actualización:** 2026-11-22 · **Empresa:** Servitranstur
 
 > Documento de Patito (experiencia de estudiantes). No es información oficial: la página de la universidad tiene algunos horarios distintos (ver avisos).
 
-## Preguntas frecuentes
+## Última ruta del día
 
-### ¿A qué hora sale la última ruta de Unillanos?
-
-Depende de la sede y el día. En la sede Barcelona la última ruta regular sale a las 19:00 (lunes a viernes) y después cierra el campus. Hay rutas nocturnas reales a las 20:00 (lunes a viernes) y a las 21:00 (solo martes, miércoles y jueves), siempre que haya habido clase hasta esa hora. Los sábados la última sale a las 18:00. Desde la sede San Antonio, los buses a los barrios salen a las 22:00 (lunes a viernes).
-
-### ¿Hay ruta a las 9 pm un lunes o un viernes?
-
-No. La ruta de las 21:00 solo funciona martes, miércoles y jueves. Lunes y viernes la última nocturna es a las 20:00.
-
-### ¿A qué hora sale el último bus de barrio?
-
-El último bus de barrio sale de la universidad a las 18:00 entre semana (la página oficial puede decir 18:10, pero la hora real es 18:00). Los sábados el único regreso es a las 12:00.
+En la sede Barcelona, la última ruta regular sale a las 19:00 (lunes a viernes), y los sábados a las 18:00. El último bus de barrio sale a las 18:00 entre semana. Si hay clase hasta tarde, existen rutas nocturnas a las 20:00 (lunes a viernes) y a las 21:00 (solo martes, miércoles y jueves); ver "Rutas nocturnas". Desde la sede San Antonio, los buses a los barrios salen a las 22:00 (lunes a viernes).
 
 ## Avisos
 
@@ -32,6 +22,7 @@ El último bus de barrio sale de la universidad a las 18:00 entre semana (la pá
 - En la ruta de barrio de las 13:30 (ida), la página de la universidad dice 13:25: la hora real es 13:30.
 - La hora indicada en rutas de barrio es la hora aproximada en que arrancan del punto de salida; al usar un paradero más lejano en el recorrido, el bus pasa un poco más tarde.
 - Las rutas nocturnas de las 20:00 y 21:00 casi nunca aparecen en los anuncios; por eso es normal creer que la última es la de las 19:00.
+- Porfía tiene rutas a las 11:00 y 11:20 que no aparecen en la página de la universidad: se consiguieron hace poco tras una solicitud en Bienestar, pero sí existen.
 
 ## Calendario del semestre
 
@@ -309,3 +300,4 @@ A diferencia de la ruta del parque, pasan por los barrios de Villavicencio. Tien
 - Es algo lejana, pero cuenta con todas las rutas.
 - Las rutas tempranas salen adelantadas: 05:10, 06:10, 07:10.
 - A las 13:20 (no 13:30) la ruta empieza en la etapa 4, por lo que no hay paradero en la etapa 5.
+- Las rutas de las 11:00 (universidad a barrio) y de las 11:20 (barrio a universidad) se consiguieron hace poco tras una solicitud en Bienestar. Por eso no aparecen en la página de la universidad, pero sí existen. Tenlas en cuenta.

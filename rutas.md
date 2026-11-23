@@ -9,7 +9,7 @@ permalink: /rutas/
 
 **Vigencia:** 2026-2 · **Última actualización:** 2026-11-22 · **Empresa:** Servitranstur
 
-> Documento de Patito (experiencia de estudiantes). No es información oficial: la página de la universidad tiene algunos horarios distintos (ver avisos).
+> Experiencia de estudiantes. No es información oficial: la página de la universidad tiene algunos horarios distintos (ver avisos).
 
 ## Última ruta del día
 

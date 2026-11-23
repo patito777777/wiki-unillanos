@@ -17,7 +17,7 @@ En la sede Barcelona, la última ruta regular sale a las 19:00 (lunes a viernes)
 
 ## Avisos
 
-- Después de que sale la ruta de las 19:00, el campus Barcelona cierra sus puertas.
+- Después de que sale la ruta de las 19:00, el campus Barcelona cierra sus puertas (los sábados es a las 18:00).
 - En la ruta de las 18:00 de la universidad, la página de la universidad dice 18:10: la hora real es 18:00. Hay que tenerlo presente para no perder el último bus de barrio.
 - En la ruta de barrio de las 13:30 (ida), la página de la universidad dice 13:25: la hora real es 13:30.
 - La hora indicada en rutas de barrio es la hora aproximada en que arrancan del punto de salida; al usar un paradero más lejano en el recorrido, el bus pasa un poco más tarde.

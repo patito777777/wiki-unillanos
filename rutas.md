@@ -1,15 +1,18 @@
 ---
 layout: default
-title: Horarios de rutas institucionales Unillanos 2026-2
-description: Horarios y paraderos de las rutas institucionales de la Universidad de los Llanos (Unillanos), sede Barcelona y San Antonio, semestre 2026-2.
+title: Horarios reales de rutas Unillanos 2026-2 (Barcelona y San Antonio)
+description: Horarios reales y actualizados de las rutas (buses institucionales) de la Universidad de los Llanos: última ruta, rutas nocturnas, rutas de barrio y paraderos, sede Barcelona y San Antonio, semestre 2026-2. Incluye las diferencias con la información oficial.
 permalink: /rutas/
+last_modified_at: 2026-11-23
 ---
 
 # Rutas institucionales Unillanos (2026-2)
 
-**Vigencia:** 2026-2 · **Última actualización:** 2026-11-22 · **Empresa:** Servitranstur
+**Vigencia:** 2026-2 · **Última actualización:** 2026-11-23 · **Empresa:** Servitranstur
 
-> Experiencia de estudiantes. No es información oficial: la página de la universidad tiene algunos horarios distintos (ver avisos).
+> Experiencia de estudiantes. No es información oficial: la página de la universidad tiene algunos horarios distintos (ver diferencias con la información oficial).
+
+Horarios de los buses (rutas institucionales, transporte estudiantil) de la Universidad de los Llanos, sede Barcelona y sede San Antonio, para el semestre 2026-2.
 
 ## Última ruta del día
 
@@ -18,11 +21,15 @@ En la sede Barcelona, la última ruta regular sale a las 19:00 (lunes a viernes)
 ## Avisos
 
 - Después de que sale la ruta de las 19:00, el campus Barcelona cierra sus puertas (los sábados es a las 18:00).
-- En la ruta de las 18:00 de la universidad, la página de la universidad dice 18:10: la hora real es 18:00. Hay que tenerlo presente para no perder el último bus de barrio.
-- En la ruta de barrio de las 13:30 (ida), la página de la universidad dice 13:25: la hora real es 13:30.
 - La hora indicada en rutas de barrio es la hora aproximada en que arrancan del punto de salida; al usar un paradero más lejano en el recorrido, el bus pasa un poco más tarde.
-- Las rutas nocturnas de las 20:00 y 21:00 casi nunca aparecen en los anuncios; por eso es normal creer que la última es la de las 19:00.
-- Porfía tiene rutas a las 11:00 y 11:20 que no aparecen en la página de la universidad: se consiguieron hace poco tras una solicitud en Bienestar, pero sí existen.
+
+## Diferencias con la información oficial
+
+- **Última salida de lunes a viernes:** algunas fuentes dan las 18:00. Eso corresponde al último bus de barrio. La ruta del parque de los estudiantes sale hasta las 19:00 y hay rutas nocturnas a las 20:00 y a las 21:00 (esta última solo martes, miércoles y jueves).
+- **Ruta de barrio de las 18:00 (universidad a barrio):** la página de la universidad dice 18:10, pero la hora real es 18:00. Hay que tenerlo presente para no perder el último bus de barrio.
+- **Ruta de barrio de las 13:30 (ida):** la página de la universidad dice 13:25, pero la hora real es 13:30.
+- **Rutas nocturnas (20:00 y 21:00 desde Barcelona; 22:00 desde San Antonio):** casi nunca aparecen en los anuncios, pero existen. Por eso es normal creer que la última es la de las 19:00.
+- **Porfía, rutas de las 11:00 y 11:20:** no aparecen en la página de la universidad. Se consiguieron hace poco tras una solicitud en Bienestar, pero sí existen.
 
 ## Calendario del semestre
 

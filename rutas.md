@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Horarios reales de rutas Unillanos 2026-2 (Barcelona y San Antonio)
-description: Horarios reales y actualizados de las rutas (buses institucionales) de la Universidad de los Llanos: última ruta, rutas nocturnas, rutas de barrio y paraderos, sede Barcelona y San Antonio, semestre 2026-2. Incluye las diferencias con la información oficial.
+title: "Horarios reales de rutas Unillanos 2026-2 (Barcelona y San Antonio)"
+description: "Horarios reales y actualizados de las rutas (buses institucionales) de la Universidad de los Llanos: última ruta, rutas nocturnas, rutas de barrio y paraderos, sede Barcelona y San Antonio, semestre 2026-2. Incluye las diferencias con la información oficial."
 permalink: /rutas/
 last_modified_at: 2026-11-23
 ---

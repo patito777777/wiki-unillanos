@@ -4,128 +4,163 @@ title: "Horarios reales de rutas Unillanos 2026-2 (Barcelona y San Antonio)"
 description: "Horarios reales y actualizados de las rutas (buses institucionales) de la Universidad de los Llanos: última ruta, rutas nocturnas, rutas de barrio y paraderos, sede Barcelona y San Antonio, semestre 2026-2. Incluye las diferencias con la información oficial."
 permalink: /rutas/
 ---
-{% assign r = site.data.rutas %}
-{% assign parque = r.ruta_parque %}
-{% assign bcn = r.rutas_nocturnas.sede_barcelona %}
-{% assign sa = r.rutas_nocturnas.sede_san_antonio %}
-{% assign barrios_data = r.rutas_barrio %}
 
-# Rutas institucionales Unillanos ({{ r.meta.vigencia }})
+<div id="rutas-app">Cargando horarios desde rutas.json...</div>
 
-**Vigencia:** {{ r.meta.vigencia }} · **Última actualización:** {{ r.meta.ultima_actualizacion }} · **Empresa:** {{ r.meta.empresa_transporte }}
+<script>
+(async function () {
+  const container = document.getElementById("rutas-app");
+  const jsonUrl = "{{ '/rutas.json' | relative_url }}";
 
-> {{ r.meta.fuente }}
+  try {
+    const res = await fetch(jsonUrl, { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const r = await res.json();
 
-Horarios de los buses (rutas institucionales, transporte estudiantil) de la {{ r.meta.universidad }}, sede Barcelona y sede San Antonio, para el semestre {{ r.meta.vigencia }}.
+    const meta = r.meta || {};
+    const parque = r.ruta_parque || {};
+    const es = parque.entre_semana || {};
+    const sab = parque.sabado || {};
+    const bcn = (r.rutas_nocturnas && r.rutas_nocturnas.sede_barcelona) || {};
+    const sa = (r.rutas_nocturnas && r.rutas_nocturnas.sede_san_antonio) || {};
+    const barriosData = r.rutas_barrio || {};
+    const barrios = barriosData.barrios || [];
 
-## Última ruta del día
+    const joinList = (arr, sep = ", ") => (Array.isArray(arr) && arr.length ? arr.join(sep) : "—");
+    const olItems = (arr, formatter) =>
+      "<ol>" + (arr || []).map((item, i) => `<li>${formatter(item, i)}</li>`).join("") + "</ol>";
+    const ulItems = (arr, formatter) =>
+      "<ul>" + (arr || []).map((item, i) => `<li>${formatter(item, i)}</li>`).join("") + "</ul>";
 
-En la sede Barcelona, la última ruta regular sale a las {{ parque.entre_semana.salida_universidad.ultima }} ({{ parque.entre_semana.dias }}), y los sábados a las {{ parque.sabado.salida_universidad.ultima }}. El último bus de barrio sale a las {{ barrios_data.horarios_base.entre_semana.universidad_a_barrio | last }} entre semana. Si hay clase hasta tarde, existen rutas nocturnas a las {{ bcn.salidas[0].hora }} ({{ bcn.salidas[0].dias | join: " a " }}) y a las {{ bcn.salidas[1].hora }} (solo {{ bcn.salidas[1].dias | join: ", " }}); ver "Rutas nocturnas". Desde la {{ sa.salen_de }}, los buses a los barrios salen a las {{ sa.hora_barrios }} ({{ sa.dias }}).
+    const sabVil = sab.salida_villavicencio || [];
+    const sabUni = sab.salida_universidad || {};
+    const saParque = sa.hacia_el_parque || {};
+    const baseEs = (barriosData.horarios_base && barriosData.horarios_base.entre_semana) || {};
+    const ultimaBarrio = Array.isArray(baseEs.universidad_a_barrio)
+      ? baseEs.universidad_a_barrio[baseEs.universidad_a_barrio.length - 1]
+      : "—";
 
-## Avisos
+    const filasBarrios = barrios
+      .map((b) => {
+        const hEs = (b.horarios && b.horarios.entre_semana) || {};
+        const hSab = b.horarios && b.horarios.sabado;
+        const sabCell = hSab
+          ? `Ida ${joinList(hSab.barrio_a_universidad)}; vuelta ${joinList(hSab.universidad_a_barrio)}`
+          : "No hay ruta";
+        return `
+          <tr>
+            <td><a href="#${b.id}">${b.nombre}</a></td>
+            <td>${joinList(hEs.barrio_a_universidad)}</td>
+            <td>${joinList(hEs.universidad_a_barrio)}</td>
+            <td>${sabCell}</td>
+          </tr>`;
+      })
+      .join("");
 
-{% for aviso in r.avisos -%}
-- {{ aviso }}
-{% endfor %}
+    const detalleBarrios = barrios
+      .map((b) => {
+        const extra = b.paradero_extra_universidad_a_barrio
+          ? `<p><strong>Paradero extra:</strong> ${b.paradero_extra_universidad_a_barrio}</p>`
+          : "";
+        const notas =
+          Array.isArray(b.notas) && b.notas.length
+            ? `<p><strong>Aclaraciones:</strong></p>${ulItems(b.notas, (n) => n)}`
+            : "";
+        return `
+          <h3 id="${b.id}">${b.nombre}</h3>
+          <p><strong>Paraderos (barrio a universidad):</strong></p>
+          ${olItems(b.paraderos, (par) => par)}
+          ${extra}
+          ${notas}`;
+      })
+      .join("");
 
-## Diferencias con la información oficial
+    const saBarriosHtml = (sa.rutas_a_barrios || [])
+      .map(
+        (rb) => `
+          <p><strong>${rb.nombre} (${rb.hora}):</strong></p>
+          ${olItems(rb.paraderos, (par) => par)}`
+      )
+      .join("");
 
-{% for dif in r.diferencias_oficial -%}
-- **{{ dif.titulo }}:** {{ dif.detalle }}
-{% endfor %}
+    container.innerHTML = `
+      <h1>Rutas institucionales Unillanos (${meta.vigencia || ""})</h1>
+      <p><strong>Vigencia:</strong> ${meta.vigencia || ""} · <strong>Última actualización:</strong> ${meta.ultima_actualizacion || ""} · <strong>Empresa:</strong> ${meta.empresa_transporte || ""}</p>
+      <blockquote><p>${meta.fuente || ""}</p></blockquote>
+      <p>Horarios de los buses (rutas institucionales, transporte estudiantil) de la ${meta.universidad || ""}, sede Barcelona y sede San Antonio, para el semestre ${meta.vigencia || ""}.</p>
 
-## Calendario del semestre
+      <h2>Última ruta del día</h2>
+      <p>En la sede Barcelona, la última ruta regular sale a las ${(es.salida_universidad && es.salida_universidad.ultima) || ""} (${es.dias || ""}), y los sábados a las ${sabUni.ultima || ""}. El último bus de barrio sale a las ${ultimaBarrio} entre semana. Si hay clase hasta tarde, existen rutas nocturnas a las ${(bcn.salidas && bcn.salidas[0] && bcn.salidas[0].hora) || ""} (${joinList(bcn.salidas && bcn.salidas[0] && bcn.salidas[0].dias, " a ")}) y a las ${(bcn.salidas && bcn.salidas[1] && bcn.salidas[1].hora) || ""} (solo ${joinList(bcn.salidas && bcn.salidas[1] && bcn.salidas[1].dias)}); ver "Rutas nocturnas". Desde la ${sa.salen_de || ""}, los buses a los barrios salen a las ${sa.hora_barrios || ""} (${sa.dias || ""}).</p>
 
-{% for cal in r.calendario_semestre -%}
-- **Semanas {{ cal.semanas }}:** {{ cal.rutas }}.
-{% endfor %}
+      <h2>Avisos</h2>
+      ${ulItems(r.avisos, (a) => a)}
 
-## {{ parque.nombre }}
+      <h2>Diferencias con la información oficial</h2>
+      ${ulItems(r.diferencias_oficial, (d) => `<strong>${d.titulo}:</strong> ${d.detalle}`)}
 
-{{ parque.descripcion }}
+      <h2>Calendario del semestre</h2>
+      ${ulItems(r.calendario_semestre, (c) => `<strong>Semanas ${c.semanas}:</strong> ${c.rutas}.`)}
 
-- **Entre semana, desde Villavicencio:** de {{ parque.entre_semana.salida_villavicencio.primera }} a {{ parque.entre_semana.salida_villavicencio.ultima }}, cada {{ parque.entre_semana.salida_villavicencio.cada_min }} min.
-- **Entre semana, desde la universidad ({{ parque.punto_salida_universidad }}):** de {{ parque.entre_semana.salida_universidad.primera }} a {{ parque.entre_semana.salida_universidad.ultima }}, cada {{ parque.entre_semana.salida_universidad.cada_min }} min. {{ parque.entre_semana.salida_universidad.nota }}
-- **Sábado, desde Villavicencio:** de {{ parque.sabado.salida_villavicencio[0].desde }} a {{ parque.sabado.salida_villavicencio[0].hasta }} cada {{ parque.sabado.salida_villavicencio[0].cada_min }} min, y de {{ parque.sabado.salida_villavicencio[1].desde }} a {{ parque.sabado.salida_villavicencio[1].hasta }} cada {{ parque.sabado.salida_villavicencio[1].cada_min }} min.
-- **Sábado, desde la universidad:** de {{ parque.sabado.salida_universidad.primera }} a {{ parque.sabado.salida_universidad.ultima }}, cada {{ parque.sabado.salida_universidad.cada_min }} min. {{ parque.sabado.salida_universidad.nota }}
+      <h2>${parque.nombre || ""}</h2>
+      <p>${parque.descripcion || ""}</p>
+      <ul>
+        <li><strong>Entre semana, desde Villavicencio:</strong> de ${(es.salida_villavicencio && es.salida_villavicencio.primera) || ""} a ${(es.salida_villavicencio && es.salida_villavicencio.ultima) || ""}, cada ${(es.salida_villavicencio && es.salida_villavicencio.cada_min) || ""} min.</li>
+        <li><strong>Entre semana, desde la universidad (${parque.punto_salida_universidad || ""}):</strong> de ${(es.salida_universidad && es.salida_universidad.primera) || ""} a ${(es.salida_universidad && es.salida_universidad.ultima) || ""}, cada ${(es.salida_universidad && es.salida_universidad.cada_min) || ""} min. ${(es.salida_universidad && es.salida_universidad.nota) || ""}</li>
+        <li><strong>Sábado, desde Villavicencio:</strong> de ${(sabVil[0] && sabVil[0].desde) || ""} a ${(sabVil[0] && sabVil[0].hasta) || ""} cada ${(sabVil[0] && sabVil[0].cada_min) || ""} min, y de ${(sabVil[1] && sabVil[1].desde) || ""} a ${(sabVil[1] && sabVil[1].hasta) || ""} cada ${(sabVil[1] && sabVil[1].cada_min) || ""} min.</li>
+        <li><strong>Sábado, desde la universidad:</strong> de ${sabUni.primera || ""} a ${sabUni.ultima || ""}, cada ${sabUni.cada_min || ""} min. ${sabUni.nota || ""}</li>
+      </ul>
 
-**Paraderos (barrio a universidad):**
+      <p><strong>Paraderos (barrio a universidad):</strong></p>
+      ${olItems(parque.paraderos_barrio_a_universidad, (p) => `${p.nombre}${p.nota ? ", " + p.nota : ""}`)}
+      <p>${parque.sentido_universidad_a_barrio || ""}</p>
 
-{% for p in parque.paraderos_barrio_a_universidad -%}
-{{ forloop.index }}. {{ p.nombre }}{% if p.nota %}, {{ p.nota }}{% endif %}
-{% endfor %}
+      <h2>Rutas nocturnas</h2>
+      <h3>Sede Barcelona</h3>
+      <p>${bcn.descripcion || ""}</p>
+      <ul>
+        <li><strong>Punto de salida:</strong> ${bcn.punto_salida || ""}.</li>
+        <li><strong>Condición:</strong> ${bcn.condicion || ""}.</li>
+        ${(bcn.salidas || [])
+          .map((s) => `<li><strong>${s.hora}:</strong> ${joinList(s.dias)}.${s.nota ? " " + s.nota : ""}</li>`)
+          .join("")}
+      </ul>
+      <p>${bcn.nota || ""}</p>
 
-{{ parque.sentido_universidad_a_barrio }}
+      <h3>Sede San Antonio</h3>
+      <p>${sa.descripcion || ""}</p>
+      <ul>
+        <li><strong>Hacia el parque de los estudiantes:</strong> de ${saParque.desde || ""} a ${saParque.hasta || ""}, cada ${saParque.cada_min || ""} min (${saParque.total_rutas || ""} rutas en total: ${joinList(saParque.salidas)}), ${saParque.nota || ""}.</li>
+        <li><strong>Hacia los barrios:</strong> salen de la ${sa.salen_de || ""} a las ${sa.hora_barrios || ""}, de ${sa.dias || ""}.</li>
+      </ul>
+      ${saBarriosHtml}
 
-## Rutas nocturnas
+      <h2>Rutas de barrio</h2>
+      <p>${barriosData.descripcion || ""}</p>
+      ${ulItems(barriosData.notas_generales, (n) => n)}
 
-### Sede Barcelona
+      <h3>Horarios base (entre semana)</h3>
+      <ul>
+        <li><strong>Barrio a universidad:</strong> ${joinList(baseEs.barrio_a_universidad)}</li>
+        <li><strong>Universidad a barrio:</strong> ${joinList(baseEs.universidad_a_barrio)}</li>
+      </ul>
 
-{{ bcn.descripcion }}
+      <h3>Resumen por barrio</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Barrio</th>
+            <th>Ida (entre semana)</th>
+            <th>Vuelta (entre semana)</th>
+            <th>Sábado</th>
+          </tr>
+        </thead>
+        <tbody>${filasBarrios}</tbody>
+      </table>
 
-- **Punto de salida:** {{ bcn.punto_salida }}.
-- **Condición:** {{ bcn.condicion }}.
-{% for s in bcn.salidas -%}
-- **{{ s.hora }}:** {{ s.dias | join: ", " }}.{% if s.nota %} {{ s.nota }}{% endif %}
-{% endfor %}
-
-{{ bcn.nota }}
-
-### Sede San Antonio
-
-{{ sa.descripcion }}
-
-- **Hacia el parque de los estudiantes:** de {{ sa.hacia_el_parque.desde }} a {{ sa.hacia_el_parque.hasta }}, cada {{ sa.hacia_el_parque.cada_min }} min ({{ sa.hacia_el_parque.total_rutas }} rutas en total: {{ sa.hacia_el_parque.salidas | join: ", " }}), {{ sa.hacia_el_parque.nota }}.
-- **Hacia los barrios:** salen de la {{ sa.salen_de }} a las {{ sa.hora_barrios }}, de {{ sa.dias }}.
-
-{% for rb in sa.rutas_a_barrios -%}
-**{{ rb.nombre }} ({{ rb.hora }}):**
-
-{% for par in rb.paraderos -%}
-{{ forloop.index }}. {{ par }}
-{% endfor %}
-
-{% endfor -%}
-## Rutas de barrio
-
-{{ barrios_data.descripcion }}
-
-{% for n in barrios_data.notas_generales -%}
-- {{ n }}
-{% endfor %}
-
-### Horarios base (entre semana)
-
-- **Barrio a universidad:** {{ barrios_data.horarios_base.entre_semana.barrio_a_universidad | join: ", " }}
-- **Universidad a barrio:** {{ barrios_data.horarios_base.entre_semana.universidad_a_barrio | join: ", " }}
-
-### Resumen por barrio
-
-| Barrio | Ida (entre semana) | Vuelta (entre semana) | Sábado |
-|---|---|---|---|
-{% for b in barrios_data.barrios -%}
-| [{{ b.nombre }}](#{{ b.id }}) | {{ b.horarios.entre_semana.barrio_a_universidad | join: ", " }} | {{ b.horarios.entre_semana.universidad_a_barrio | join: ", " }} | {% if b.horarios.sabado %}Ida {{ b.horarios.sabado.barrio_a_universidad | join: ", " }}; vuelta {{ b.horarios.sabado.universidad_a_barrio | join: ", " }}{% else %}No hay ruta{% endif %} |
-{% endfor %}
-
-{% for b in barrios_data.barrios -%}
-### {{ b.nombre }} {#{{ b.id }}}
-
-**Paraderos (barrio a universidad):**
-
-{% for par in b.paraderos -%}
-{{ forloop.index }}. {{ par }}
-{% endfor %}
-
-{% if b.paradero_extra_universidad_a_barrio -%}
-**Paradero extra:** {{ b.paradero_extra_universidad_a_barrio }}
-
-{% endif -%}
-{% if b.notas.size > 0 -%}
-**Aclaraciones:**
-
-{% for nota in b.notas -%}
-- {{ nota }}
-{% endfor %}
-
-{% endif -%}
-{% endfor -%}
+      ${detalleBarrios}
+    `;
+  } catch (err) {
+    container.innerHTML = `<p><strong>Error al cargar rutas.json:</strong> ${err.message}</p>`;
+  }
+})();
+</script>

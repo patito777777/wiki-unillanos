@@ -1,120 +1,154 @@
 {
-  "_como_editar": "Este archivo es la unica fuente de verdad de la pagina de rutas. Para cambiar un horario o un paradero basta con editar el texto aqui; la pagina lo lee de este archivo. Las horas van en formato 24h (13:30 = 1:30pm). Lo marcado con 'por_confirmar' es un dato que aun no esta verificado.",
+  "_como_editar": "Este archivo es la única fuente de verdad de la página de rutas. Para cambiar un horario o un paradero basta con editar el texto aquí; la página lo lee de este archivo. Las horas van en formato 24h (13:30 = 1:30 p. m.). Lo marcado con 'por_confirmar' es un dato que aún no está verificado.",
 
   "meta": {
     "universidad": "Universidad de los Llanos (Unillanos)",
     "vigencia": "2026-2",
-    "ultima_actualizacion": "2026-11-21",
-    "fuente": "Documento de Patito (experiencia de estudiantes). No es informacion oficial: la pagina de la universidad tiene algunos horarios distintos (ver avisos).",
+    "ultima_actualizacion": "2026-11-26",
+    "fuente": "Experiencia de estudiantes. No es información oficial: la página de la universidad tiene algunos horarios distintos (ver diferencias con la información oficial).",
     "empresa_transporte": "Servitranstur",
     "contrato": "Contrato formal durante el semestre, para estudiantes",
-    "sede_barcelona": "Vereda Barcelona, km 12 via a Puerto Lopez (zona rural)"
+    "sede_barcelona": "Vereda Barcelona, km 12 vía a Puerto López (zona rural)"
   },
 
   "calendario_semestre": [
-    { "semanas": "1 a 16", "rutas": "Rutas normales (las de esta pagina)" },
-    { "semanas": "17 (entrega de notas)", "rutas": "Solo ruta de centro (parque de los estudiantes), de 07:00 a 17:00" }
+    { "semanas": "1 a 16", "rutas": "rutas normales (las de esta página)" },
+    { "semanas": "17 (entrega de notas)", "rutas": "solo ruta de centro (parque de los estudiantes), de 07:00 a 17:00" }
   ],
 
   "avisos": [
-    "Despues de que sale la ruta de las 19:00 el campus Barcelona cierra sus puertas.",
-    "En la ruta de las 18:00 de la universidad, la pagina de la universidad dice 18:10: la hora real es 18:00. Hay que tenerlo presente para no perder el ultimo bus de barrio.",
-    "En la ruta de barrio de las 13:30 (ida), la pagina de la universidad dice 13:25: la hora real es 13:30.",
-    "La hora indicada en rutas de barrio es la hora aproximada en que arrancan del punto de salida; al usar un paradero mas lejano en el recorrido el bus pasa un poco mas tarde.",
-    "Las rutas nocturnas de las 20:00 y 21:00 casi nunca aparecen en los anuncios; por eso es normal creer que la ultima es la de las 19:00."
+    "Después de que sale la ruta de las 19:00, el campus Barcelona cierra sus puertas (los sábados es a las 18:00).",
+    "La hora indicada en rutas de barrio es la hora aproximada en que arrancan del punto de salida; al usar un paradero más lejano en el recorrido, el bus pasa un poco más tarde."
+  ],
+
+  "diferencias_oficial": [
+    {
+      "titulo": "Última salida de lunes a viernes",
+      "detalle": "algunas fuentes dan las 18:00. Eso corresponde al último bus de barrio. La ruta del parque de los estudiantes sale hasta las 19:00 y hay rutas nocturnas a las 20:00 y a las 21:00 (esta última solo martes, miércoles y jueves)."
+    },
+    {
+      "titulo": "Ruta de barrio de las 18:00 (universidad a barrio)",
+      "detalle": "la página de la universidad dice 18:10, pero la hora real es 18:00. Hay que tenerlo presente para no perder el último bus de barrio."
+    },
+    {
+      "titulo": "Ruta de barrio de las 13:30 (ida)",
+      "detalle": "la página de la universidad dice 13:25, pero la hora real es 13:30."
+    },
+    {
+      "titulo": "Rutas nocturnas (20:00 y 21:00 desde Barcelona; 21:50 desde San Antonio)",
+      "detalle": "casi nunca aparecen en los anuncios, pero existen. Por eso es normal creer que la última es la de las 19:00."
+    },
+    {
+      "titulo": "Porfía, rutas de las 11:00 y 11:20",
+      "detalle": "no aparecen en la página de la universidad. Se consiguieron hace poco tras una solicitud en Bienestar, pero sí existen."
+    }
   ],
 
   "ruta_parque": {
     "nombre": "Ruta del parque de los estudiantes (centro)",
-    "descripcion": "Ruta de alta frecuencia entre el centro y la sede Barcelona. Los horarios son aproximados y pueden variar segun la afluencia de estudiantes.",
-    "punto_salida_universidad": "Puerta 3, el embarcadero",
+    "descripcion": "Ruta de alta frecuencia entre el centro y la sede Barcelona. Los horarios son aproximados y pueden variar según la afluencia de estudiantes.",
+    "punto_salida_universidad": "puerta 3, el embarcadero",
     "entre_semana": {
       "dias": "lunes a viernes",
       "salida_villavicencio": { "primera": "05:20", "ultima": "17:30", "cada_min": 20 },
-      "salida_universidad": { "primera": "06:00", "ultima": "19:00", "cada_min": 20, "nota": "La de las 19:00 es puntual. La hora de la primera salida (06:00) esta pendiente de confirmacion: algunos dicen 06:00 y otros 08:00, pero la evidencia indica que realmente es a las 06:00.", "por_confirmar": true }
+      "salida_universidad": {
+        "primera": "06:00",
+        "ultima": "19:00",
+        "cada_min": 20,
+        "nota": "La de las 19:00 es puntual. La hora de la primera salida (06:00) está pendiente de confirmación: algunos dicen 06:00 y otros 08:00, pero la evidencia indica que realmente es a las 06:00.",
+        "por_confirmar": true
+      }
     },
     "sabado": {
       "salida_villavicencio": [
         { "desde": "05:20", "hasta": "08:00", "cada_min": "15 a 20" },
         { "desde": "08:00", "hasta": "15:00", "cada_min": 30 }
       ],
-      "salida_universidad": { "primera": "06:00", "ultima": "18:00", "cada_min": "20 a 30", "nota": "La de las 18:00 es puntual." }
+      "salida_universidad": {
+        "primera": "06:00",
+        "ultima": "18:00",
+        "cada_min": "20 a 30",
+        "nota": "La de las 18:00 es puntual."
+      }
     },
     "paraderos_barrio_a_universidad": [
-      { "nombre": "Parque de los estudiantes (diagonal al Interrapidisimo)", "nota": "Punto de salida" },
+      { "nombre": "Parque de los estudiantes (diagonal al Interrapidísimo)", "nota": "punto de salida" },
       { "nombre": "Centro comercial Unicentro" },
-      { "nombre": "Tecniguayas", "nota": "En la practica casi nunca se usa" },
+      { "nombre": "Tecniguayas", "nota": "en la práctica casi nunca se usa" },
       { "nombre": "Colegio Industrial" },
       { "nombre": "Makro Supermayorista" },
       { "nombre": "Barrio La Alborada" },
       { "nombre": "Universidad Cooperativa de Colombia" },
-      { "nombre": "Estacion de servicio Primax Ocoa", "nota": "Rarisimo, casi nunca se usa" },
-      { "nombre": "Entrada Barcelona", "nota": "Rarisimo, casi nunca se usa" }
+      { "nombre": "Estación de servicio Primax Ocoa", "nota": "rarísimo, casi nunca se usa" },
+      { "nombre": "Entrada Barcelona", "nota": "rarísimo, casi nunca se usa" }
     ],
-    "sentido_universidad_a_barrio": "Los mismos paraderos en orden inverso."
+    "sentido_universidad_a_barrio": "En sentido universidad a barrio, los paraderos son los mismos en orden inverso."
   },
 
   "rutas_nocturnas": {
     "sede_barcelona": {
-      "descripcion": "Rutas de extraccion: el campus ya cerro y los estudiantes no pueden salir, asi que el bus entra a recogerlos. Mismos paraderos que la ruta del parque.",
-      "punto_salida": "Frente a la piscina (dentro de la universidad)",
-      "condicion": "Solo aparecen si realmente hubo clase hasta esa hora.",
+      "descripcion": "Rutas de extracción: el campus ya cerró y los estudiantes no pueden salir, así que el bus entra a recogerlos. Mismos paraderos que la ruta del parque.",
+      "punto_salida": "frente a la piscina (dentro de la universidad)",
+      "condicion": "solo aparecen si realmente hubo clase hasta esa hora",
       "vigencia": "2026-2",
       "salidas": [
-        { "hora": "20:00", "dias": ["lunes", "martes", "miercoles", "jueves", "viernes"] },
-        { "hora": "21:00", "dias": ["martes", "miercoles", "jueves"], "nota": "No hay ruta de las 21:00 los lunes ni los viernes." }
+        { "hora": "20:00", "dias": ["lunes", "martes", "miércoles", "jueves", "viernes"] },
+        { "hora": "21:00", "dias": ["martes", "miércoles", "jueves"], "nota": "No hay ruta de las 21:00 los lunes ni los viernes." }
       ],
       "nota": "Suelen ser los mismos buses de la ruta nocturna de San Antonio: dejan a los estudiantes de Barcelona en el parque y luego suben a San Antonio."
     },
     "sede_san_antonio": {
-      "descripcion": "San Antonio (sede urbana, en el centro) siempre estuvo excluida del beneficio de rutas. Hoy solo tiene ruta en la jornada nocturna, conseguida despues del paro de 2023.",
+      "descripcion": "La sede San Antonio (sede urbana, en el centro) siempre estuvo excluida del beneficio de rutas. Hoy solo tiene ruta en la jornada nocturna, conseguida después del paro de 2023.",
       "hacia_el_parque": {
         "desde": "20:00",
-        "hasta": "21:45",
-        "cada_min": 15,
+        "hasta": "21:30",
+        "cada_min": 30,
+        "total_rutas": 4,
+        "salidas": ["20:00", "20:30", "21:00", "21:30"],
         "destino": "Parque de los estudiantes",
-        "nota": "Sin paraderos intermedios por la cercania."
+        "nota": "sin paraderos intermedios por la cercanía"
       },
+      "hora_barrios": "21:50",
+      "salen_de": "sede San Antonio",
+      "dias": "lunes a viernes",
       "rutas_a_barrios": [
         {
-          "nombre": "Porfia",
-          "hora": "22:00",
+          "nombre": "Porfía",
+          "hora": "21:50",
           "paraderos": [
-            "Camara de Comercio, avenida 40",
+            "Cámara de Comercio, avenida 40",
             "SENA, avenida 40",
             "Funeraria La Paz",
             "Glorieta del barrio La Rochela",
-            "Iglesia Porfia",
-            "Banco Congente Porfia",
-            "Saman de la Rivera"
+            "Iglesia Porfía",
+            "Banco Congente Porfía",
+            "Samán de la Rivera"
           ]
         },
         {
           "nombre": "Reliquia - Kirpas - Cooperativa",
-          "hora": "22:00",
+          "hora": "21:50",
           "paraderos": [
             "Bomberos",
-            "Semaforo del barrio La Vainilla",
-            "Semaforo de Hato Grande",
-            "Olimpica de avenida Catama",
+            "Semáforo del barrio La Vainilla",
+            "Semáforo de Hato Grande",
+            "Olímpica de avenida Catama",
             "Entrada barrio Santa Catalina",
-            "Entrada barrio Covisan",
+            "Entrada barrio Covisán",
             "Entrada barrio El Salitre",
             "Puesto de salud barrio La Reliquia",
             "Entrada barrio San Antonio",
             "Barrio Kirpas",
-            "Barrio Villa Melida",
+            "Barrio Villa Mélida",
             "Universidad Cooperativa"
           ]
         }
-      ],
-      "salen_de": "Sede San Antonio, hacia los barrios",
-      "dias": "lunes a viernes"
+      ]
     }
   },
 
   "rutas_barrio": {
-    "descripcion": "A diferencia de la ruta del parque, pasan por los barrios de Villavicencio. Horarios muy fijos y menos frecuentes.",
+    "descripcion": "A diferencia de la ruta del parque, pasan por los barrios de Villavicencio. Tienen horarios muy fijos y son menos frecuentes.",
     "horarios_base": {
       "entre_semana": {
         "barrio_a_universidad": ["05:20", "06:20", "07:20", "08:20", "11:20", "13:30"],
@@ -126,20 +160,20 @@
       }
     },
     "notas_generales": [
-      "Los paraderos estan en orden de recorrido barrio -> universidad. En sentido universidad -> barrio puede cambiar un 'en' por un 'frente a' y viceversa.",
-      "El bus que recoge estudiantes a las 11:20 es el mismo que sale de la universidad a las 11:00 (recoge y deja a la vez), por eso segun el barrio y paradero puede aparecer a las 11:30 o incluso despues de las 11:40.",
-      "Los sabados los paraderos se mantienen pero los horarios se reducen mucho. No hay ruta de Reliquia ni de Maracos.",
-      "Una alternativa frecuente si hay clase el sabado mas tarde (8 o 10): ir al parque de los estudiantes o a alguno de sus paraderos."
+      "Los paraderos están en orden de recorrido barrio a universidad. En sentido universidad a barrio puede cambiar un 'en' por un 'frente a' y viceversa.",
+      "El bus que recoge estudiantes a las 11:20 es el mismo que sale de la universidad a las 11:00 (recoge y deja a la vez), por eso, según el barrio y el paradero, puede aparecer a las 11:30 o incluso después de las 11:40.",
+      "Los sábados los paraderos se mantienen, pero los horarios se reducen mucho. No hay ruta de Reliquia ni de Maracos.",
+      "Una alternativa frecuente si hay clase el sábado más tarde (8 o 10) es ir al parque de los estudiantes o a alguno de sus paraderos.",
+      "Maracos, Covisán y Reliquia comparten varios paraderos porque se apoyan entre sí."
     ],
-
     "barrios": [
       {
         "id": "amarilo",
         "nombre": "Amarilo",
         "paraderos": [
-          "Paradero de buses diagonal a drogueria Farmameta (punto de salida)",
-          "Frente a la estacion de servicio Primax de La Coralina",
-          "Exito Express de Rosa Blanca (frente al CDA Andino)"
+          "Paradero de buses diagonal a droguería Farmameta (punto de salida)",
+          "Frente a la estación de servicio Primax de La Coralina",
+          "Éxito Express de Rosa Blanca (frente al CDA Andino)"
         ],
         "horarios": {
           "entre_semana": {
@@ -149,23 +183,23 @@
           "sabado": { "barrio_a_universidad": ["05:20"], "universidad_a_barrio": ["12:00"] }
         },
         "notas": [
-          "En las de regreso de las 11:00 y 12:00 esta ruta se combina con la de Montecarlo y hay que abordar con ellos. Por el recorrido de Montecarlo, el unico paradero que aplica es el de la drogueria.",
-          "Lo mismo para las de ida de 11:20 y 13:30: solo aplica el paradero de la drogueria; los otros dos no aplican a mediodia.",
-          "Los sabados pasa lo mismo: en Montecarlo-Amarilo, el primer paradero universidad -> barrio es el de Amarilo, y viceversa."
+          "En las de regreso de las 11:00 y 12:00, esta ruta se combina con la de Montecarlo y hay que abordar con ellos. Por el recorrido de Montecarlo, el único paradero que aplica es el de la droguería.",
+          "Lo mismo para las de ida de 11:20 y 13:30: solo aplica el paradero de la droguería; los otros dos no aplican a mediodía.",
+          "Los sábados pasa lo mismo: en Montecarlo-Amarilo, el primer paradero universidad a barrio es el de Amarilo, y viceversa."
         ]
       },
       {
-        "id": "la_grama",
+        "id": "la-grama",
         "nombre": "La Grama",
         "paraderos": [
           "4 Parques (punto de salida 1)",
-          "Picadas y Algo Mas (punto de salida 2)",
-          "Diagonal a la estacion de servicio Texaco, frente al monumento al Coleo",
+          "Picadas y Algo Más (punto de salida 2)",
+          "Diagonal a la estación de servicio Texaco, frente al monumento al Coleo",
           "Apartamentos frente a la Toyota",
-          "Drogueria Providencia",
+          "Droguería Providencia",
           "Antiguo hotel Rosado"
         ],
-        "paradero_extra_universidad_a_barrio": "Iglesia Santa Maria Reina (solo en sentido universidad -> barrio; es el primer paradero en ese sentido)",
+        "paradero_extra_universidad_a_barrio": "Iglesia Santa María Reina (solo en sentido universidad a barrio; es el primer paradero en ese sentido).",
         "horarios": {
           "entre_semana": {
             "barrio_a_universidad": ["05:20", "06:20", "07:20", "08:20", "11:20", "13:30"],
@@ -174,8 +208,8 @@
           "sabado": { "barrio_a_universidad": ["05:20"], "universidad_a_barrio": ["12:00"] }
         },
         "notas": [
-          "A las 05:20, 06:20 y 07:20 el punto de salida es 4 Parques (y tambien pasa por Picadas y Algo Mas).",
-          "A las 08:20, 11:20 y 13:30 el punto de salida es Picadas y Algo Mas, por lo que NO pasa por 4 Parques."
+          "A las 05:20, 06:20 y 07:20 el punto de salida es 4 Parques (y también pasa por Picadas y Algo Más).",
+          "A las 08:20, 11:20 y 13:30 el punto de salida es Picadas y Algo Más, por lo que no pasa por 4 Parques."
         ]
       },
       {
@@ -183,12 +217,12 @@
         "nombre": "Maracos",
         "paraderos": [
           "Montallantas de la bomba, avenida Maracos (punto de salida)",
-          "Panaderia frente al lavadero Estero",
+          "Panadería frente al lavadero Estero",
           "Esquina parque Mi Llanura",
           "Glorieta Terminal",
           "Montallantas Alto El Pinilla",
-          "Frente a la Policia Metropolitana",
-          "Entrada a Kirpas, en los paraderos publicos",
+          "Frente a la Policía Metropolitana",
+          "Entrada a Kirpas, en los paraderos públicos",
           "Lavadero 24 horas",
           "Pan Rolo"
         ],
@@ -200,19 +234,19 @@
           "sabado": null
         },
         "notas": [
-          "Queda mas lejos: las rutas de ida mas tempranas salen 10 minutos antes de lo habitual (05:10, 06:10, 07:10).",
-          "Esta ruta no existe los sabados."
+          "Queda más lejos: las rutas de ida más tempranas salen 10 minutos antes de lo habitual (05:10, 06:10, 07:10).",
+          "Esta ruta no existe los sábados."
         ]
       },
       {
         "id": "postobon",
-        "nombre": "Postobon",
+        "nombre": "Postobón",
         "paraderos": [
-          "Almacen Yamaha (punto de salida)",
+          "Almacén Yamaha (punto de salida)",
           "Entrada biblioteca Cofrem",
           "Fresilandia",
           "Puente peatonal del Sikuani",
-          "Paradero de servicio publico de apartamentos Cantarrana"
+          "Paradero de servicio público de apartamentos Cantarrana"
         ],
         "horarios": {
           "entre_semana": {
@@ -222,21 +256,21 @@
           "sabado": { "barrio_a_universidad": ["05:20"], "universidad_a_barrio": ["12:00"] }
         },
         "notas": [
-          "Ocasionalmente se combina con La Grama en horarios de baja afluencia (como el mediodia) y mas los sabados."
+          "Ocasionalmente se combina con La Grama en horarios de baja afluencia (como el mediodía) y más los sábados."
         ]
       },
       {
         "id": "covisan",
-        "nombre": "Covisan",
+        "nombre": "Covisán",
         "paraderos": [
-          "Frente a la drogueria del Estero 24 hrs",
-          "Bomba de Covisan",
+          "Frente a la droguería del Estero 24 hrs",
+          "Bomba de Covisán",
           "Parqueadero frente a apartamentos del Salitre",
-          "Apartamentos Amarilo via al Campanario",
+          "Apartamentos Amarilo vía al Campanario",
           "Asadero frente al Campanario",
           "Entrada mega colegio San Antonio",
-          "Frente a la Policia Metropolitana",
-          "Panaderia Kirpan",
+          "Frente a la Policía Metropolitana",
+          "Panadería Kirpán",
           "Lavadero 24 horas",
           "Pan Rolo"
         ],
@@ -248,17 +282,17 @@
           "sabado": { "barrio_a_universidad": ["05:10"], "universidad_a_barrio": ["12:00"] }
         },
         "notas": [
-          "Igualmente sale 10 minutos antes en los horarios mas tempranos (05:10, 06:10, 07:10)."
+          "Igualmente sale 10 minutos antes en los horarios más tempranos (05:10, 06:10, 07:10)."
         ]
       },
       {
         "id": "villacentro",
         "nombre": "Villacentro",
         "paraderos": [
-          "Porteria principal del centro comercial Villacentro, entrada del supermercado Olimpica (punto de salida)",
-          "Mazorcadas frente al edificio de la Fiscalia",
-          "Paradero de servicio publico frente a la pizzeria Domino's",
-          "Drogueria La Rebaja frente a Sipote Malteada"
+          "Portería principal del centro comercial Villacentro, entrada del supermercado Olímpica (punto de salida)",
+          "Mazorcadas frente al edificio de la Fiscalía",
+          "Paradero de servicio público frente a la pizzería Domino's",
+          "Droguería La Rebaja frente a Sipote Malteada"
         ],
         "horarios": {
           "entre_semana": {
@@ -274,12 +308,12 @@
         "nombre": "Terminal",
         "paraderos": [
           "Frente al banco W de Hato Grande (punto de salida)",
-          "Puesto de salud frente a Olimpica",
-          "Semaforo del Manantial",
-          "Semaforo de la morgue",
+          "Puesto de salud frente a Olímpica",
+          "Semáforo del Manantial",
+          "Semáforo de la morgue",
           "Motores Cummins",
           "Colanta",
-          "Semaforo de los apartamentos Cerro Campestre"
+          "Semáforo de los apartamentos Cerro Campestre"
         ],
         "horarios": {
           "entre_semana": {
@@ -297,8 +331,8 @@
           "Puesto de salud de La Reliquia (punto de salida)",
           "Asadero frente al Campanario",
           "Mega colegio San Antonio",
-          "Frente a la Policia Metropolitana",
-          "Panaderia Kirpan",
+          "Frente a la Policía Metropolitana",
+          "Panadería Kirpán",
           "Lavadero 24 horas",
           "Pan Rolo"
         ],
@@ -310,22 +344,22 @@
           "sabado": null
         },
         "notas": [
-          "Es el barrio mas lejano de la lista, por eso tiene el transporte mas limitado.",
-          "Su unico paradero propio es el puesto de salud de La Reliquia (punto de salida); los otros 6 son compartidos con Maracos y Covisan.",
-          "Ida: 05:10, 06:10, 07:10 y 08:20; no hay mas tarde.",
-          "Regreso: 16:00, 17:00 y 18:00; no hay mas temprano.",
-          "No existe los sabados."
+          "Es el barrio más lejano de la lista, por eso tiene el transporte más limitado.",
+          "Su único paradero propio es el puesto de salud de La Reliquia (punto de salida); los otros 6 son compartidos con Maracos y Covisán.",
+          "Ida: 05:10, 06:10, 07:10 y 08:20; no hay más tarde.",
+          "Regreso: 16:00, 17:00 y 18:00; no hay más temprano.",
+          "No existe los sábados."
         ]
       },
       {
         "id": "viva",
         "nombre": "Viva",
         "paraderos": [
-          "Semaforo centro comercial Viva, Villa Bolivar (punto de salida)",
+          "Semáforo centro comercial Viva, Villa Bolívar (punto de salida)",
           "Boutique Revival",
-          "Esquina inmobiliaria Casa Jerez",
-          "Esquina de la drogueria de la calle 37-45",
-          "Esquina panaderia La Cosmopolita",
+          "Esquina inmobiliaria Casa Jérez",
+          "Esquina de la droguería de la calle 37-45",
+          "Esquina panadería La Cosmopolita",
           "Esquina de la carrera 28F"
         ],
         "horarios": {
@@ -341,8 +375,8 @@
         "id": "montecarlo",
         "nombre": "Montecarlo",
         "paraderos": [
-          "Debajo del puente peatonal Llanolindo, sentido Bogota-Villavicencio",
-          "Bahia de la bomba Primax de Serramonte",
+          "Debajo del puente peatonal Llanolindo, sentido Bogotá-Villavicencio",
+          "Bahía de la bomba Primax de Serramonte",
           "Glorieta de La Rochela",
           "Puente peatonal Catumare"
         ],
@@ -355,24 +389,24 @@
         },
         "notas": [
           "Los horarios tempranos salen 10 minutos antes (05:10, 06:10, 07:10 y 08:10 en lugar de 08:20), aunque no suelen ser puntuales.",
-          "Llanolindo es un paradero dificil para el bus por su tamano; muchos conductores no paran ahi en la ruta universidad -> barrio de las 12:00. No cuentes con bajarte en Llanolindo a esa hora.",
-          "A las 13:30 de ida la ruta inicia desde la glorieta de La Rochela (por razones economicas): Llanolindo no aplica y el paradero de Serramonte pasa a ser despues del de Catumare, y toca cruzar hasta la bahia del otro lado de la carretera para abordarlo.",
-          "El orden de paraderos es el mismo en ambos sentidos, salvo que se incluya Amarilo segun la hora: ahi alterna entre ultimo (ida) y primero (vuelta).",
-          "Se combina con Amarilo a mediodia y los sabados (ver Amarilo)."
+          "Entre semana, Llanolindo es un paradero difícil para el bus por su gran tamaño; muchos conductores no paran ahí en la ruta universidad a barrio de las 12:00 entre semana, por lo que conviene no contar con bajarse en Llanolindo a esa hora esos días. Los sábados sí para en Llanolindo a las 12:00.",
+          "A las 13:30 de ida la ruta inicia desde la glorieta de La Rochela (por razones económicas): Llanolindo no aplica y el paradero de Serramonte pasa a ser después del de Catumare, y toca cruzar hasta la bahía del otro lado de la carretera para abordarlo.",
+          "El orden de paraderos es el mismo en ambos sentidos, salvo que se incluya Amarilo según la hora: ahí alterna entre último (ida) y primero (vuelta).",
+          "Se combina con Amarilo a mediodía y los sábados (ver Amarilo)."
         ]
       },
       {
         "id": "porfia",
-        "nombre": "Porfia",
+        "nombre": "Porfía",
         "paraderos": [
           "Etapa 5 de La Madrid (punto de salida)",
           "Entrada etapa 4 de La Madrid",
-          "Almacen Los Chopos",
+          "Almacén Los Chopos",
           "Salida colegio Las Palmas",
           "Banco Congente",
-          "Consuerte, diagonal a la iglesia de Porfia",
-          "Bomba en glorieta de Porfia",
-          "Segundo puente peatonal Saman de la Rivera"
+          "Consuerte, diagonal a la iglesia de Porfía",
+          "Bomba en glorieta de Porfía",
+          "Segundo puente peatonal Samán de la Rivera"
         ],
         "horarios": {
           "entre_semana": {
@@ -382,16 +416,13 @@
           "sabado": { "barrio_a_universidad": ["05:10"], "universidad_a_barrio": ["12:00"] }
         },
         "notas": [
-          "Este recorrido se hace igual en sentido universidad -> barrio.",
+          "Este recorrido se hace igual en sentido universidad a barrio.",
           "Es algo lejana, pero cuenta con todas las rutas.",
           "Las rutas tempranas salen adelantadas: 05:10, 06:10, 07:10.",
-          "A las 13:20 (no 13:30) la ruta empieza en la etapa 4, por lo que no hay paradero en la etapa 5."
+          "A las 13:20 (no 13:30) la ruta empieza en la etapa 4, por lo que no hay paradero en la etapa 5.",
+          "Las rutas de las 11:00 (universidad a barrio) y de las 11:20 (barrio a universidad) se consiguieron hace poco tras una solicitud en Bienestar. Por eso no aparecen en la página de la universidad, pero sí existen. Tenlas en cuenta."
         ]
       }
-    ],
-
-    "grupo_maracos_covisan_reliquia": {
-      "nota": "Hay varios paraderos en comun en estas tres rutas porque se apoyan entre si."
-    }
+    ]
   }
 }

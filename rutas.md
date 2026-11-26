@@ -90,7 +90,7 @@ permalink: /rutas/
       <p>Horarios de los buses (rutas institucionales, transporte estudiantil) de la ${meta.universidad || ""}, sede Barcelona y sede San Antonio, para el semestre ${meta.vigencia || ""}.</p>
 
       <h2>Última ruta del día</h2>
-      <p>En la sede Barcelona, la última ruta regular sale a las ${(es.salida_universidad && es.salida_universidad.ultima) || ""} (${es.dias || ""}), y los sábados a las ${sabUni.ultima || ""}. El último bus de barrio sale a las ${ultimaBarrio} entre semana. Si hay clase hasta tarde, existen rutas nocturnas a las ${(bcn.salidas && bcn.salidas[0] && bcn.salidas[0].hora) || ""} (${joinList(bcn.salidas && bcn.salidas[0] && bcn.salidas[0].dias, " a ")}) y a las ${(bcn.salidas && bcn.salidas[1] && bcn.salidas[1].hora) || ""} (solo ${joinList(bcn.salidas && bcn.salidas[1] && bcn.salidas[1].dias)}); ver "Rutas nocturnas". Desde la ${sa.salen_de || ""}, los buses a los barrios salen a las ${sa.hora_barrios || ""} (${sa.dias || ""}).</p>
+      <p>En la sede Barcelona, la última ruta regular sale a las ${(es.salida_universidad && es.salida_universidad.ultima) || ""} (${es.dias || ""}), y los sábados a las ${sabUni.ultima || ""}. El último bus de barrio sale a las ${ultimaBarrio} entre semana. Si hay clase hasta tarde, existen rutas nocturnas a las {{ bcn.salidas[0].hora }} ({{ bcn.salidas[0].dias | first }} a {{ bcn.salidas[0].dias | last }}) y a las {{ bcn.salidas[1].hora }} (solo {{ bcn.salidas[1].dias | join: ", " }}); ver "Rutas nocturnas". Desde la ${sa.salen_de || ""}, los buses a los barrios salen a las ${sa.hora_barrios || ""} (${sa.dias || ""}).</p>
 
       <h2>Avisos</h2>
       ${ulItems(r.avisos, (a) => a)}

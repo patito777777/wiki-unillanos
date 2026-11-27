@@ -1,6 +1,7 @@
 # Wiki Unillanos
-> Informacion practica de la Universidad de los Llanos (Unillanos), Villavicencio.
+> Información práctica de la Universidad de los Llanos (Unillanos), Villavicencio.
 
-## Paginas
+## Páginas
 - [Rutas institucionales](https://patito777777.github.io/wiki-unillanos/rutas/): horarios y paraderos de rutas, sede Barcelona y San Antonio.
 - [Datos de rutas en JSON](https://patito777777.github.io/wiki-unillanos/rutas/rutas.json): los mismos datos en formato estructurado.
+- [Campus Barcelona: edificios, bloques y aulas](https://patito777777.github.io/wiki-unillanos/sedes/barcelona/): guía de ubicación y espacios en la sede Barcelona.

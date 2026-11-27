@@ -1,8 +1,7 @@
 title: Wiki Unillanos
-description: Informacion practica de la Universidad de los Llanos (rutas, sedes, tramites, bienestar, programas).
+description: Información práctica de la Universidad de los Llanos (rutas, sedes, trámites, bienestar, programas).
 lang: es
 theme: minima
-# Cambia TU-USUARIO y el nombre del repositorio por los tuyos:
 url: https://patito777777.github.io
 baseurl: /wiki-unillanos
 plugins:
